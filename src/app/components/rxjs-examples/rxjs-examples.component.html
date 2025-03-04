@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>RxJS Operators 示範</h1>
+    
+    <div *ngIf="!showOperators">
+      <h3>選擇運算子類別：</h3>
+      <div class="category-buttons">
+        <button (click)="selectCategory('creation')">Creation Operators</button>
+        <button (click)="selectCategory('joinCreation')">Join Creation Operators</button>
+        <button (click)="selectCategory('transformation')">Transformation Operators</button>
+        <button (click)="selectCategory('filtering')">Filtering Operators</button>
+        <button (click)="selectCategory('join')">Join Operators</button>
+        <button (click)="selectCategory('utility')">Utility Operators</button>
+        <button (click)="selectCategory('conditional')">Conditional Operators</button>
+        <button (click)="selectCategory('subject')">Subject VS BehaviorSubject</button>
+      </div>
+    </div>
+  
+    <div *ngIf="showOperators">
+      <h3>{{ selectedCategory }} 類別下的運算子：</h3>
+      <div class="operator-buttons">
+        <button *ngFor="let operator of getOperators()" (click)="runExample(operator)">
+          {{ operator }}
+        </button>
+      </div>
+      <button (click)="back()">返回類別選擇</button>
+    </div>
+  </div>
